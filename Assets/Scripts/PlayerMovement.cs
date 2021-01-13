@@ -13,9 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;   // Initaillize AudioSouce
 
     private int JumpCounter;           // Count how many times player has jumped
-    public float jump = 10f;           // How hign player can jump
-
     private int spacePressed = 0;      // Count how many times spacebar is pressed for Single Jump
+    public float jump = 10f;           // How hign player can jump
 
     // Start is called before the first frame update
     void Start()
