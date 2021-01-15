@@ -11,11 +11,13 @@ public class BGM : MonoBehaviour
 
     private float volume;           // Volume variable 
 
+    private int rand;
 
     // Start is called before the first frame update
     void Start()
     {
         bgmSource = GetComponent<AudioSource>();  // Get AudioSource Component
+        
     }
 
     // Update is called once per frame
@@ -29,11 +31,31 @@ public class BGM : MonoBehaviour
     {
 
         // On tab key pressed,  Bgm will change to a random BGM in the array
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            int rand = Random.Range(0, BGMClipArr.Length);
+            rand = Random.Range(0, BGMClipArr.Length);
             bgmSource.PlayOneShot(BGMClipArr[rand]);
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab) && rand == 0)
+        {
+            CheckforRandomBGM();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && rand == 1)
+        {
+            CheckforRandomBGM();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && rand == 2)
+        {
+            CheckforRandomBGM();
+        }
+    }
+
+    private void CheckforRandomBGM()
+    {
+        bgmSource.Stop();
+        rand = Random.Range(0, BGMClipArr.Length);
+        bgmSource.PlayOneShot(BGMClipArr[rand]);
     }
 
     private void AudioChange()
