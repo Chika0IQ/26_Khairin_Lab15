@@ -17,7 +17,8 @@ public class BGM : MonoBehaviour
     void Start()
     {
         bgmSource = GetComponent<AudioSource>();  // Get AudioSource Component
-        
+        rand = Random.Range(0, BGMClipArr.Length);
+        bgmSource.PlayOneShot(BGMClipArr[rand]);
     }
 
     // Update is called once per frame
@@ -30,13 +31,7 @@ public class BGM : MonoBehaviour
     private void TabKeyPressed()
     {
 
-        // On tab key pressed,  Bgm will change to a random BGM in the array
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            rand = Random.Range(0, BGMClipArr.Length);
-            bgmSource.PlayOneShot(BGMClipArr[rand]);
-        }
-
+        // On tab key pressed,  Bgm will change to a random BGM in the array 
         if (Input.GetKeyDown(KeyCode.Tab) && rand == 0)
         {
             CheckforRandomBGM();
